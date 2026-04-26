@@ -66,11 +66,11 @@ class Plugin:
 		clean_env = os.environ.copy()
 		clean_env["LD_LIBRARY_PATH"] = ""
 
-		hash_bin = os.path.join(decky_plugin.DECKY_PLUGIN_DIR, "backend", "hash")
-		os.chmod(hash_bin, 0o755)
-
-		cmd = [hash_bin, path]
-
+		cmd = [
+			os.path.join(decky_plugin.DECKY_PLUGIN_DIR, "backend", "hash"),
+			path
+		]
+    
 		# Run the command and capture its output
 		result = subprocess.run(
 			cmd,
